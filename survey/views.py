@@ -4,7 +4,7 @@ from .models import Survey
 from .forms import SurveyForm
 
 def index(request):
-    return render(request, "survey/survey.html")
+    return render(request, "survey/index.html")
 
 def show_survey(request, id=None):
     survey = get_object_or_404(Survey, pk=id)
