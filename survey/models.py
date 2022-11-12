@@ -14,8 +14,6 @@ class Question(models.Model):
   def __str__(self):
     return self.text
 
-  def __str__(self):
-    return self.text
 
 class Choice(models.Model):
   question = models.ForeignKey(Question, null=True, on_delete=models.CASCADE)
