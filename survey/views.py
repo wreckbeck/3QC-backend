@@ -17,7 +17,7 @@ def show_survey(request, id=None): # form data is sent back to view and processe
     
     url = reverse("show-survey", args=(id, ))
     # We need to check if the data is valid
-    if form.is_bound and form.is_valid:
+    if form.is_bound and form.is_valid():
       form.save()
       messages.add_message(request, messages.INFO, 'Submission saved.')
       return redirect(url)
