@@ -1,5 +1,7 @@
 from django import forms
-from .models import Submission, Choice
+from django.forms import ModelForm
+
+from .models import Choice, Submission, Survey
 
 # form widgets - define html input items. RadioSelect takes an optional 'choices' argument
 
@@ -15,7 +17,7 @@ class SurveyForm(forms.Form):
             self.fields[f"question_{question.id}"].label = question.text
 
     def save(self):
-        data = self.cleaned_data
+        data = self.cleaned_data # dictionary, contains form data
         submission = Submission(survey=self.survey, participant_email=data["email"])
         submission.save()
         for question in self.survey.question_set.all():
@@ -24,3 +26,4 @@ class SurveyForm(forms.Form):
       
         submission.save()
         return submission
+

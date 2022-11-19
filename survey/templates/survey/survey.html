@@ -1,12 +1,10 @@
-<!-- <li>
-  <a href="{% url 'show-survey' survey.id %}"></a>
-</li> -->
-
 {% block "content" %}
 <h1>{{ survey.title }}</h1>
 
-<form action="{% url 'show-survey' survey.id %}" method="POST">
+{% if submitted %} Your response was submitted successfully! {% else %}
+<form action="" method="POST">
   {% csrf_token %} {{ form.as_p }}
   <input type="submit" name="submit" value="Submit" />
 </form>
-{% endblock %}
+
+{%endif%} {% endblock %}
