@@ -7,7 +7,7 @@ class Survey(models.Model):
     return self.title
 
 class Question(models.Model):
-  survey = models.ForeignKey(Survey, on_delete=models.PROTECT)
+  survey = models.ForeignKey(Survey, on_delete=models.PROTECT, related_name='questions')
   text = models.CharField(max_length=200)
   pub_date = models.DateTimeField('date published')
 
@@ -16,7 +16,7 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
-  question = models.ForeignKey(Question, null=True, on_delete=models.CASCADE)
+  question = models.ForeignKey(Question, null=True, on_delete=models.CASCADE, related_name='choices')
   text = models.CharField(max_length=255)
 
   def __str__(self):

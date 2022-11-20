@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.contrib import messages
 from .models import Survey
 from .forms import SurveyForm
 
