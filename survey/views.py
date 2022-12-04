@@ -13,12 +13,14 @@ def show_survey(request, id=None):
     survey = get_object_or_404(Survey, pk=id)
 
     form = SurveyForm(survey)
+
     submitted = False 
     url = reverse("show-survey", args=(id, ))
     if request.method == "POST":
       form = SurveyForm(survey, request.POST)
       if form.is_valid() and form.is_bound:
         form.save()
+        print(form.data)
         return HttpResponseRedirect(url + "?submitted=True")
     else:
       if 'submitted' in request.GET:
