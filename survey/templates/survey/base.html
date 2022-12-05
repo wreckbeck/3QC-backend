@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,6 +10,7 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="{% static '/survey/style.css' %}" />
   </head>
   <body>
     {% include 'survey/navbar.html' %} {% block content %} {% endblock %}
@@ -18,4 +20,8 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  <br />
+  <footer>
+    <img src="" alt="" />
+  </footer>
 </html>
