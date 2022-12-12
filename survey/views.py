@@ -14,13 +14,24 @@ def survey_csv(request):
 
   # Designate model
   submissions = Submission.objects.all()
+  object = Submission.objects.get(participant_email="d@d.test").answer.all()
+  print(object)
+
+  for choice in object:
+    print(choice)
+    number = int(choice.text)
 
   # Add Column headings to CSV file
-  writer.writerow(['Survey', 'Email', 'Answers'])
+  writer.writerow(['Survey', 'Email', 'Answers', 'Score'])
 
   # Loop through submissions and append to writer
   for submission in submissions:
-    writer.writerow([submission.survey, submission.participant_email, submission.answer])
+    score = 0
+    answers = [choice for choice in submission.answer.all()]
+    choices = [int(choice.text) for choice in submission.answer.all()]
+    for choice in choices:
+      score += choice
+    writer.writerow([submission.survey, submission.participant_email, answers, score])
   
   return response
 
