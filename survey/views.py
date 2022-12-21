@@ -36,8 +36,8 @@ def survey_csv(request):
   return response
 
 
-def index(request):
-    return render(request, "survey/index.html")
+def home(request):
+    return render(request, "survey/home.html")
 
 def show_survey(request, id=None):
     survey = get_object_or_404(Survey, pk=id)
@@ -45,7 +45,7 @@ def show_survey(request, id=None):
     form = SurveyForm(survey)
 
     submitted = False 
-    url = reverse("show-survey", args=(id, ))
+    url = reverse("show_survey", args=(id, ))
     if request.method == "POST":
       form = SurveyForm(survey, request.POST)
       if form.is_valid() and form.is_bound:

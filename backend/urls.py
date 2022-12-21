@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include,re_path
 
 urlpatterns = [
-    path('survey/', include('survey.urls')),
+    path('', include('survey.urls')),
     path('admin/', admin.site.urls),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls'))
