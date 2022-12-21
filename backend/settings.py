@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'survey',
     'django_admin_shell',
     'bootstrap5',
+    'members',
 ]
 
 MIDDLEWARE = [
