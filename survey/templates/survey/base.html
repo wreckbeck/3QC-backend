@@ -15,8 +15,12 @@
   <body>
     {% include 'survey/navbar.html' %}
     <div class="container">
-      {% if messages %} {% for messages in messages %} {{messages}} {% endfor %} {% endif %} {% block content %}
-      {%endblock%}
+      {% if messages %} {% for messages in messages %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{messages}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %} {% endif %} {% block content %} {%endblock%}
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

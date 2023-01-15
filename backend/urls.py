@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include,re_path
+from survey.views import home
 
 urlpatterns = [
-    path('', include('survey.urls')),
+    path('', home, name='home'),
+    path('survey/', include('survey.urls')),
     path('admin/', admin.site.urls),
     path('members/', include('django.contrib.auth.urls')),
-    path('members/', include('members.urls'))
+    path('', include('members.urls'))
 ]
